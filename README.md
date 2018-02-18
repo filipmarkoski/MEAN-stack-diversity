@@ -1,3 +1,5 @@
+You just do `ng serve -o` from the main main project folder
+
 # Diversity
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
