@@ -1,0 +1,12 @@
+.users {
+    list-style-type: none;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.users li {
+    display: inline-block;
+    margin: 5px;
+    text-align: center;
+    text-underline-mode: true;
+}

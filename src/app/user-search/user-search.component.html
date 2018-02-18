@@ -1,0 +1,12 @@
+<div id="search-component">
+    <h4>User Search</h4>
+
+    <input class="form-control" #searchBox id="search-box" (keyup)="search(searchBox.value)"/>
+
+    <ul class="search-result">
+        <li *ngFor="let user of users$ | async">
+            {{user.name}}
+
+        </li>
+    </ul>
+</div>

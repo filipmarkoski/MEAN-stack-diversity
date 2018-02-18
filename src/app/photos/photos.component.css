@@ -1,0 +1,17 @@
+.photos {
+    list-style-type: none;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.photos li {
+    display: inline-block;
+    margin: 2px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.photo {
+    height: 100px;
+    display: block;
+}
