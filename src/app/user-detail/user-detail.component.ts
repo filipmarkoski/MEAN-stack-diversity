@@ -8,7 +8,7 @@ import {UserService} from "../user.service";
 @Component({
     selector: 'app-user-detail',
     templateUrl: './user-detail.component.html',
-    styleUrls: ['./user-detail.component.css']
+    styleUrls: ['./user-detail.component.css'],
 })
 export class UserDetailComponent implements OnInit {
 
@@ -31,5 +31,9 @@ export class UserDetailComponent implements OnInit {
                 error => console.error(error),
                 () => console.log("getUser() loaded: ", this.user)
             );
+    }
+
+    public refresh() {
+        this.getUser();
     }
 }
