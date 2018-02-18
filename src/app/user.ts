@@ -10,4 +10,9 @@ export class User {
         this.email = email;
         this.password = password;
     }
+
+    toString(): string {
+        return `${this.id}. ${this.name}`;
+    }
+
 }

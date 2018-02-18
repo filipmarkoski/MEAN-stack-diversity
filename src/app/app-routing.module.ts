@@ -7,10 +7,21 @@ import {UserDetailComponent} from './user-detail/user-detail.component';
 
 
 const routes: Routes = [
-    {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-    {path: 'dashboard', component: DashboardComponent},
-    {path: 'detail/:id', component: UserDetailComponent},
-    {path: 'users', component: UsersComponent}
+    {
+        path: 'users',
+        component: DashboardComponent,
+        children: [
+            {
+                path: '',
+                component: UserDetailComponent
+            },
+            {
+                path: ':userId',
+                component: UserDetailComponent
+            }
+        ]
+    },
+    {path: '**', redirectTo: '/users', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -19,7 +30,6 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
 }
-
 
 /*
 Copyright 2017-2018 Google Inc. All Rights Reserved.

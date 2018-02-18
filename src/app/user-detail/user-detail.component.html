@@ -1,7 +1,12 @@
+<h3>User Detail</h3>
+<div *ngIf="!user">
+    Click at on of the user to see more details!
+</div>
+<!--{{user | json}}-->
 <div *ngIf="user">
-    <h2>Details about {{ user.name | titlecase }} </h2>
-    <p><span>ID: </span>{{user.id}}</p>
-    <p>Name: <input [(ngModel)]="user.name" placeholder="name"/></p>
-    <p>Email: {{user.email}}</p>
-    <p>Password: {{user.password}}</p>
+    <h5>Details about <u>{{ user.name | titlecase }}</u></h5>
+    ID: {{user.id}}<br>
+    Name: <input [(ngModel)]="user.name" placeholder="name"/><br>
+    Email: {{user.email}}<br>
+    Password: {{user.password}}<br>
 </div>

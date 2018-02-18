@@ -4,6 +4,7 @@ import {User} from "../user";
 import {UserService} from "../user.service";
 import {UserDetailComponent} from "../user-detail/user-detail.component";
 
+import {Observable} from 'rxjs/observable';
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -12,13 +13,15 @@ import {UserDetailComponent} from "../user-detail/user-detail.component";
 })
 export class DashboardComponent implements OnInit {
 
-    users: User[] = [];
+    users: User[];
+    public users$: Observable<User[]>;
 
-    constructor(private userService: UserService, private userDetailComponent: UserDetailComponent) {
+    constructor(private userService: UserService) {
     }
 
     ngOnInit() {
         this.getUsers();
+        //this.users$ = this.userService.getUsers();
     }
 
     getUsers(): void {
@@ -26,8 +29,12 @@ export class DashboardComponent implements OnInit {
             .subscribe(users => this.users = users.slice(0, 5));
     }
 
-    public refreshUserDetailComponent(): void {
-        this.userDetailComponent.refresh();
-    }
+    /*
+
+        , private userDetailComponent: UserDetailComponent
+        public refreshUserDetailComponent(): void {
+            this.userDetailComponent.refresh();
+        }
+    */
 
 }
