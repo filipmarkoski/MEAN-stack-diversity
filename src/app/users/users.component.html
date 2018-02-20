@@ -1,5 +1,5 @@
 <h1>Users</h1>
-<ul class="users">
+<ul *ngIf="users.length > 0" class="users">
     <li *ngFor="let user of users">
         <p>{{user.name}}</p>
     </li>

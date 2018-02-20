@@ -6,18 +6,16 @@ import {UserService} from "../user.service";
 @Component({
     selector: 'app-users',
     templateUrl: './users.component.html',
-    styleUrls: ['./users.component.css']
+    styleUrls: ['./users.component.css'],
 })
 export class UsersComponent implements OnInit {
-    users: User[];
+    users: User[] = [];
 
     constructor(private userService: UserService) {
     }
 
     ngOnInit() {
         this.getUsers();
-
-        //this.postUser("Ball", "ball@gmail.com", "ballPass");
     }
 
     getUsers(): void {
@@ -29,7 +27,9 @@ export class UsersComponent implements OnInit {
             );
     }
 
-    postUser(name: string, email: string, password: string): void {
-        this.userService.postUser(name, email, password);
+    appendUser(user: User): void {
+        console.log("From UsersComponent: ", user);
+        this.users.push(user);
     }
+
 }

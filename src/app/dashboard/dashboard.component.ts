@@ -13,7 +13,7 @@ import {Observable} from 'rxjs/observable';
 })
 export class DashboardComponent implements OnInit {
 
-    users: User[];
+    users: User[] = [];
     public users$: Observable<User[]>;
 
     constructor(private userService: UserService) {
@@ -21,20 +21,10 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         this.getUsers();
-        //this.users$ = this.userService.getUsers();
     }
 
     getUsers(): void {
         this.userService.getUsers()
             .subscribe(users => this.users = users.slice(0, 5));
     }
-
-    /*
-
-        , private userDetailComponent: UserDetailComponent
-        public refreshUserDetailComponent(): void {
-            this.userDetailComponent.refresh();
-        }
-    */
-
 }

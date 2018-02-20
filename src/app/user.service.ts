@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 
 import {Observable} from 'rxjs/Observable';
 import {of} from "rxjs/observable/of";
@@ -9,6 +9,7 @@ import {User} from "./user";
 
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
+    //headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})
 };
 
 @Injectable()
@@ -29,16 +30,18 @@ export class UserService {
         return this.http.get<User>(url);
     }
 
+    postUserObject(user: User) {
+        return this.postUser(user.name, user.email, user.password);
+    }
+
     postUser(name: string, email: string, password: string) {
-        console.log(`postUser(${name}, ${email}, ${password})`);
         var url = `${this.usersUrl}/post`;
         var data = {
             name: name,
             email: email,
             password: password
         };
-        return this.http.post(url, data)
-            .subscribe(res => console.log(res));
+        return this.http.post(url, JSON.stringify(data), httpOptions);
     }
 
     /* GET heroes whose name contains search term */
