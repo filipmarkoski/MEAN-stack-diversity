@@ -41,7 +41,7 @@ export class UserService {
             email: email,
             password: password
         };
-        return this.http.post(url, JSON.stringify(data), httpOptions);
+        return this.http.post<User>(url, JSON.stringify(data), httpOptions);
     }
 
     /* GET heroes whose name contains search term */

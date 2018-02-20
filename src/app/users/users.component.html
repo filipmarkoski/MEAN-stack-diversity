@@ -1,6 +1,17 @@
 <h1>Users</h1>
+<button class="btn btn-dark" (click)="logUsers()">
+    logUsers()
+</button>
+<ul *ngIf="numbers.length > 0" class="users">
+    <li *ngFor="let num of numbers">
+        {{num}}
+    </li>
+</ul>
+
+
+
 <ul *ngIf="users.length > 0" class="users">
     <li *ngFor="let user of users">
-        <p>{{user.name}}</p>
+        {{user.name}}
     </li>
 </ul>
