@@ -12,7 +12,7 @@ export class User {
     }
 
     toString(): string {
-        return `${this.id}. ${this.name}`;
+        return this.name;
     }
 
 }

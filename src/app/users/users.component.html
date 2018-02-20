@@ -1,16 +1,12 @@
 <h1>Users</h1>
-<button class="btn btn-dark" (click)="logUsers()">
-    logUsers()
+<button class="btn btn-primary" (click)="logUsers()">
+    Refresh Users
 </button>
-<ul *ngIf="numbers.length > 0" class="users">
-    <li *ngFor="let num of numbers">
-        {{num}}
-    </li>
-</ul>
+
+<div *ngIf="searchCaseUser">Searching for: {{searchCaseUser}}</div>
 
 
-
-<ul *ngIf="users.length > 0" class="users">
+<ul *ngIf="users.length > 0" class="users" style="font-size: small">
     <li *ngFor="let user of users">
         {{user.name}}
     </li>

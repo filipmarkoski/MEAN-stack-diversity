@@ -6,6 +6,7 @@ import {of} from "rxjs/observable/of";
 import {catchError, map, tap} from 'rxjs/operators';
 
 import {User} from "./user";
+import {Subject} from "rxjs/Subject";
 
 const httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -16,6 +17,13 @@ const httpOptions = {
 export class UserService {
 
     private usersUrl = 'http://localhost:3000/users';  // URL to web api
+
+    private caseUser = new Subject<User>();
+    caseUser$ = this.caseUser.asObservable();
+
+    publishUser(data: User) {
+        this.caseUser.next(data);
+    }
 
     constructor(private http: HttpClient) {
     }
